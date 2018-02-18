@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 title: hello-world
-url: https://Juke-99.github.io
+url: http://Juke-99.github.io
 
 plugins: [github-pages]
-=======
-baseurl: /blog
->>>>>>> 0bf0cb99c4343c83bee2d8ed551fbfc2935d4c7b
