@@ -3,21 +3,106 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Mplus 1p', sans-serif;
+}
+
+body {
+
+}
+
+h1, h2, h3, h4, a {
+  color: #44D62C;
 }
 
 header {
   width: 100%;
-  background-color: #111111;
 }
 
 header h2 {
-  color: #ffdf44;
-  padding: 2%;
+  padding: 5% 2%;
   text-align: center;
   font-size: 210%;
+  letter-spacing: 0.05em;
+}
+
+article {
+  padding: 5% 2.1%;
+  border-radius: 12px;
+}
+
+article h3 {
+  letter-spacing: 0.01em;
+  border-bottom: solid 0.03em #efefef;
+  padding: 2% 1%;
+  font-size: 250%;
 }
 
 p {
-  font-size: 130%;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #44D62C;
+  text-decoration: none;
+}
+
+.lang {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #44D62C;
+  font-size: 150%;
+  padding: 1%;
+}
+
+.center {
+  text-align: center;
+}
+
+.art-head {
+  width: 63%;
+  margin: auto;
+  padding-top: 3%;
+}
+
+.art-head h2 {
+  text-align: left;
+  font-size: 300%;
+  padding: 0.5%;
+  border-bottom: solid 0.03em #efefef;
+}
+
+.art-head .date {
+  font-size: 80%;
+}
+
+.date {
+  letter-spacing: 0.07em;
+  font-size: 102%;
+  color: #717171;
+  padding: 1%;
+}
+
+.descri {
+  letter-spacing: 0.05em;
+  padding: 1% 2%;
+  color: #aaaaaa;
+}
+
+.main {
+  width: 67%;
+  margin: auto;
+}
+
+.main h2 {
+  font-size: 210%;
+}
+
+.main p {
+  font-size: 120%;
+  padding: 1%;
 }
