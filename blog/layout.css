@@ -54,7 +54,6 @@ a:hover {
   position: absolute;
   right: 0;
   top: 0;
-  color: #44D62C;
   font-size: 150%;
   padding: 1%;
 }
@@ -104,5 +103,13 @@ a:hover {
 
 .main p {
   font-size: 120%;
+  padding: 1%;
+}
+
+.return-home {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 150%;
   padding: 1%;
 }
