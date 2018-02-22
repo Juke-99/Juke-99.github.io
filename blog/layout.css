@@ -54,7 +54,7 @@ a:hover {
   position: absolute;
   right: 0;
   top: 0;
-  font-size: 150%;
+  font-size: 170%;
   padding: 1%;
 }
 
@@ -110,6 +110,6 @@ a:hover {
   position: fixed;
   bottom: 0;
   right: 0;
-  font-size: 150%;
+  font-size: 170%;
   padding: 1%;
 }
