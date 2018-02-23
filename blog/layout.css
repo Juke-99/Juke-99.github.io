@@ -37,8 +37,17 @@ article h3 {
   font-size: 250%;
 }
 
-p {
+p, li {
   font-weight: 300;
+}
+
+ul {
+  padding-left: 2.5%;
+}
+
+li {
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 a {
@@ -48,6 +57,17 @@ a {
 a:hover {
   color: #44D62C;
   text-decoration: none;
+}
+
+footer {
+  width: 100%;
+  background-color: #fdfdfd;
+  border-top: solid 0.03em #efefef;
+  padding: 4% 0;
+}
+
+footer p {
+  padding: 2%;
 }
 
 .lang {
@@ -99,6 +119,8 @@ a:hover {
 
 .main h2 {
   font-size: 210%;
+  padding-top: 5%;
+  padding-bottom: 0.1%;
 }
 
 .main p {
@@ -112,4 +134,10 @@ a:hover {
   right: 0;
   font-size: 170%;
   padding: 1%;
+}
+
+.coming-soon {
+  margin-top: 5%;
+  margin-right: 2%;
+  text-align: right;
 }
