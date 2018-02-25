@@ -70,6 +70,19 @@ footer p {
   padding: 2%;
 }
 
+pre {
+  width: 60%;
+  margin: 3% 2%;
+  font-size: 130%;
+}
+
+code {
+  padding: 2px 4px;
+  background-color: #f5f6f7;
+  border-radius: 4px;
+  font-size: 85%;
+}
+
 .lang {
   position: absolute;
   right: 0;
@@ -118,9 +131,14 @@ footer p {
 }
 
 .main h2 {
-  font-size: 210%;
+  font-size: 230%;
   padding-top: 5%;
   padding-bottom: 0.1%;
+}
+
+.main h3 {
+  font-size: 210%;
+  padding: 2% 1% 0.7% 0.8%;
 }
 
 .main p {
