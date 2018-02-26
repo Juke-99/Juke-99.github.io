@@ -159,3 +159,8 @@ code {
   margin-right: 2%;
   text-align: right;
 }
+
+.disqus-layout {
+  width: 90%;
+  margin: 3% auto;
+}
