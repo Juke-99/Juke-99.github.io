@@ -93,7 +93,69 @@
       </code></pre>
 
       <p>
-        Call <code>onError</code> by any <i>error</i> before all of <code>onNext</code> finish:
+        Example of <code>onError</code> method that need to a little note:
+      </p>
+
+      <pre><code class="java">
+        PublishSubject<String> subject = PublishSubject.create();
+        subject.onNext("one");
+        subject.subscribe(System.out::println, System.out::println);
+        subject.onNext("two");
+        subject.onNext("three");
+        subject.onError(new Exception("Oops"));  // error
+        subject.onNext("fore");
+      </code></pre>
+
+      <p>(appropriate) Output</p>
+
+      <pre><code class="java">
+        two
+        three
+        java.lang.Exception: Oops
+      </code></pre>
+
+      <p>
+        Why do <code>onError</code> method need to note? It's because I encountered when wrote following code:
+      </p>
+
+      <pre><code class="jave">
+        PublishSubject<String> subject = PublishSubject.create();
+        subject.onNext("one");
+        subject.subscribe(System.out::println);
+        subject.onNext("two");
+        subject.onNext("three");
+        subject.onError(new Exception("Oops"));  // error
+        subject.onNext("fore");
+      </code></pre>
+
+      <p>(unappropriate) Output</p>
+
+      <pre><code class="java">
+        io.reactivex.exceptions.OnErrorNotImplementedException: Oops
+                at io.reactivex.internal.functions.Functions$OnErrorMissingConsumer.accept(Functions.java:704)
+                at io.reactivex.internal.functions.Functions$OnErrorMissingConsumer.accept(Functions.java:701)
+                at io.reactivex.internal.observers.LambdaObserver.onError(LambdaObserver.java:74)
+                at io.reactivex.subjects.PublishSubject$PublishDisposable.onError(PublishSubject.java:273)
+                at io.reactivex.subjects.PublishSubject.onError(PublishSubject.java:201)
+                at Example01.esObserver(Example01.java:14)
+                at Main.main(Main.java:4)
+        Caused by: java.lang.Exception: Oops
+                ... 2 more
+        Exception in thread "main" io.reactivex.exceptions.OnErrorNotImplementedException: Oops
+                at io.reactivex.internal.functions.Functions$OnErrorMissingConsumer.accept(Functions.java:704)
+                at io.reactivex.internal.functions.Functions$OnErrorMissingConsumer.accept(Functions.java:701)
+                at io.reactivex.internal.observers.LambdaObserver.onError(LambdaObserver.java:74)
+                at io.reactivex.subjects.PublishSubject$PublishDisposable.onError(PublishSubject.java:273)
+                at io.reactivex.subjects.PublishSubject.onError(PublishSubject.java:201)
+                at Example01.esObserver(Example01.java:14)
+                at Main.main(Main.java:4)
+        Caused by: java.lang.Exception: Oops
+                ... 2 more
+      </code></pre>
+
+      <p>
+        This exception isn't intend, actually this exception seem to often occur. Cause of this exception is
+        occur for not implement <code>onError</code> to your subscriber.
       </p>
 
       <p>
