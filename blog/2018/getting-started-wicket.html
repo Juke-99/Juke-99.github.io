@@ -4,8 +4,12 @@
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
-    <title>Juke-99 Blog | ReactiveX</title>
+    <title>Juke-99 Blog | Getting started Apache Wicket</title>
     <link rel="stylesheet" href="../layout.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
   </head>
 
@@ -14,6 +18,9 @@
       <p class="lang"><a href="../jp/2018/rx_java_intro.html">JP</a></p>
       <h2>Gettting started Apache Wicket</h2>
       <p class="date">xx Mar 2018</p>
+      <figure>
+        <img src="../images/apache-wicket.png">
+      </figure>
     </header>
 
     <article class="main">
@@ -22,6 +29,48 @@
       <p>
         Apache Wicket is a component web framework written in Java.
       </p>
+
+      <h3>Ready Apache Wicket</h3>
+
+      <p>
+        You first need to ready maven, you enter in command line after access to
+        <a href="https://wicket.apache.org/start/quickstart.html">Wicket home page</a>. Become like
+        following my case:
+      </p>
+
+      <pre><code>
+        mvn archetype:generate -DarchetypeGroupId=org.apache.wicket -DarchetypeArtifactId=wicket-archetype-quickstart -DarchetypeVersion=7.10.0 -DgroupId=com.juke99 -DartifactId=myproject -DarchetypeRepository=https://repository.apache.org/ -DinteractiveMode=false
+      </code></pre>
+
+      <h2>Hello World</h2>
+
+      <p>
+        Tentatively, let's create easy example. Now, you write the following sentence into filter tag in web.xml.
+      </p>
+
+      <pre><code class="xml">
+        &lt;filter-name&gt;Hello World&lt;/filter-name&gt;
+        &lt;filter-class&gt;org.apache.wicket.protocol.http.WicketFilter&lt;/filter-class&gt;
+        &lt;init-param&gt;
+        	&lt;param-name&gt;applicationClassName&lt;/param-name&gt;
+        	&lt;param-value&gt;com.juke99.HelloWorldApp&lt;/param-value&gt;
+        &lt;/init-param&gt;
+      </code></pre>
+
+      <p>
+        After writed this code, you create HelloWorld.java file into a package.<br>
+        The following code is HelloWorld.java:
+      </p>
+
+      <pre><code class="java">
+        import org.apache.wicket.markup.html.WebPage;
+
+        public class HelloWorld extends WebPage {
+          public HelloWorld() {
+
+          }
+        }
+      </code></pre>
     </article>
 
     <footer>
