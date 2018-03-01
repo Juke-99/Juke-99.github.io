@@ -16,7 +16,10 @@
     <header class="art-head">
       <p class="lang"><a href="../jp/2018/rx_java_intro.html">JP</a></p>
       <h2>Learn RxJava2</h2>
-      <p class="date">2018 Feb xx</p>
+      <p class="date">xx Mar 2018</p>
+      <figure>
+        <img src="../images/rxjava-logo.png">
+      </figure>
     </header>
 
     <article class="main">
@@ -155,11 +158,27 @@
 
       <p>
         This exception isn't intend, actually this exception seem to often occur. Cause of this exception is
-        occur for not implement <code>onError</code> to your subscriber.
+        occur for not implement <code>onError</code> to your subscriber.<br>
+        The following <code>subscribe</code> method is:
       </p>
 
+      <pre><code class="java">
+        subscribe()
+        subscribe(Consumer&lt;? super T&gt; onNext)
+        subscribe(Consumer&lt;? super T&gt; onNext, Consumer&lt;? super Throwable&gt; onError)
+        subscribe(Consumer&lt;? super T&gt; onNext, Consumer&lt;? super Throwable&gt; onError, Action onComplete)
+        subscribe(Consumer&lt;? super T&gt; onNext, Consumer&lt;? super Throwable&gt; onError, Action onComplete, Comsumer&lt;? super Disposable&gt; onSubscribe)
+        subscribe(Observer&lt;? super T&gt; observer)
+      </code></pre>
+
       <p>
-        There is no "one"? It's later <a href="#subjects">explain</a>.<br>
+        If you use <code>onError</code>, then you have to implement error handling in <code>subscribe</code>
+        method.
+      </p>
+
+      <h3>Summary</h3>
+
+      <p>
         <code>onNext</code> method calls whenever the Observable emits an item. <code>onComplete</code> method
         notifies that the Observable properly finished. <code>onComplete</code> method is named as
         <code>onCompleted</code> in RxJava1, but changed to removing <code>d</code> in RxJava2 due to
