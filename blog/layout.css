@@ -177,6 +177,12 @@ figure img {
   margin: 3% auto;
 }
 
+.around-border {
+  width: 80%;
+  margin: 3% 2%;
+  border: solid #adadad 0.03em;
+}
+
 @media screen and (max-width: 500px) {
   header h2 {
     padding: 5% 2%;
@@ -263,5 +269,11 @@ figure img {
   footer p {
     padding: 2%;
     font-size: 90%;
+  }
+
+  .around-border {
+    width: 100%;
+    margin: 3% 0;
+    border: solid #adadad 0.03em;
   }
 }
