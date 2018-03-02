@@ -176,3 +176,88 @@ figure img {
   width: 90%;
   margin: 3% auto;
 }
+
+@media screen and (max-width: 500px) {
+  header h2 {
+    padding: 5% 2%;
+    text-align: center;
+    font-size: 210%;
+    letter-spacing: 0.05em;
+  }
+
+  header figure {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 3%;
+  }
+
+  article h3 {
+    letter-spacing: 0.01em;
+    border-bottom: solid 0.03em #efefef;
+    padding: 2% 1%;
+    font-size: 230%;
+  }
+
+  header figure {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: 3%;
+  }
+
+  .art-head h2 {
+    text-align: left;
+    font-size: 250%;
+    padding: 0.5%;
+    border-bottom: solid 0.03em #efefef;
+  }
+
+  .date {
+    letter-spacing: 0.07em;
+    font-size: 90%;
+    color: #717171;
+    padding: 1%;
+  }
+
+  .descri {
+    letter-spacing: 0.05em;
+    padding: 1% 2%;
+    color: #aaaaaa;
+    font-size: 85%;
+  }
+
+  .main h2 {
+    font-size: 200%;
+    padding-top: 5%;
+    padding-bottom: 0.1%;
+  }
+
+  .main h3 {
+    font-size: 210%;
+    padding: 2% 1% 0.7% 0.8%;
+  }
+
+  .main p {
+    font-size: 100%;
+    padding: 1%;
+  }
+
+  pre {
+    width: 100%;
+    margin: 3% 0;
+    font-size: 120%;
+  }
+
+  code {
+    padding: 2px 4px;
+    background-color: #f5f6f7;
+    border-radius: 4px;
+    font-size: 75%;
+  }
+
+  footer p {
+    padding: 2%;
+    font-size: 90%;
+  }
+}
