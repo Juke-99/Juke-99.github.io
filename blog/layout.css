@@ -183,6 +183,12 @@ figure img {
   border: solid #adadad 0.03em;
 }
 
+.emphasize {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+  font-size: 90%;
+}
+
 @media screen and (max-width: 500px) {
   header h2 {
     padding: 5% 2%;

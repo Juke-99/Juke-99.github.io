@@ -26,7 +26,7 @@
       <h2>Introduction</h2>
 
       <p>
-        Apache Wicket is a component web framework written in Java.
+        Apache Wicket is a component web framework written in Java. This is knew as the component-oriented.
       </p>
 
       <h3>Ready Apache Wicket</h3>
@@ -49,7 +49,7 @@
 
       <pre><code class="xml">
         &lt;filter&gt;
-          &lt;filter-name&gt;Hello World&lt;/filter-name&gt;
+          &lt;filter-name&gt;HelloWorldApp&lt;/filter-name&gt;
           &lt;filter-class&gt;org.apache.wicket.protocol.http.WicketFilter&lt;/filter-class&gt;
           &lt;init-param&gt;
           	&lt;param-name&gt;applicationClassName&lt;/param-name&gt;
@@ -58,8 +58,8 @@
         &lt;/filter&gt;
 
         &lt;filter-mapping&gt;
-      		&lt;filter-name&gt;Hello World&lt;/filter-name&gt;
-      		&lt;url-pattern&gt;/hello&lt;/url-pattern&gt;
+      		&lt;filter-name&gt;HelloWorldApp&lt;/filter-name&gt;
+      		&lt;url-pattern&gt;/hello/*&lt;/url-pattern&gt;
       	&lt;/filter-mapping&gt;
       </code></pre>
 

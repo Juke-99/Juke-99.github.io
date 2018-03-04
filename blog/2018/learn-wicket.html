@@ -4,10 +4,11 @@
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
-    <title>Juke-99 Blog | Getting started Apache Wicket</title>
+    <title>Juke-99 Blog | Learn Apache Wicket</title>
     <link rel="stylesheet" href="../layout.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </head>
@@ -60,6 +61,17 @@
         ('message' in example). It must have a special attribute called <code>wicket:id</code> when insert
         the second argument of <code>Label</code> into HTML tag and its value must be identical to the component
         id.
+      </p>
+
+      <h2></h2>
+
+      <h3>Wicket link</h3>
+
+      <p>
+        Wicket implements links with <code>org.apache.wicket.markup.html.link.Link</code> component.
+        When you want to navigate to another page, you must use <code>setResponsePage</code> method of
+        <code>Component</code> class. <!--If you want to add link of Wicket to HTML, you needs to add a Wicket
+        identifier (<span class="emphasize">link</span>) in your HTML file.-->
       </p>
     </article>
 
