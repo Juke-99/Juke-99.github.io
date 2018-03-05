@@ -16,7 +16,7 @@
     <header class="art-head">
       <p class="lang"><a href="../jp/2018/rx_java_intro.html">JP</a></p>
       <h2>Gettting started Apache Wicket</h2>
-      <p class="date">update: 2 Mar 2018</p>
+      <p class="date">update: 6 Mar 2018</p>
       <figure>
         <img src="../images/apache-wicket.png">
       </figure>
@@ -91,13 +91,11 @@
 
         public class HelloWorldApp extends WebApplication {
 
-          @Override
-          public void init() {
+          @Override public void init() {
             super.init();
           }
 
-          @Override
-          public Class getHomePage() {
+          @Override public Class getHomePage() {
             return HelloWorld.class;
           }
         }

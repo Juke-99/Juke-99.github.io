@@ -17,7 +17,7 @@
     <header class="art-head">
       <p class="lang"><a href="../jp/2018/rx_java_intro.html">JP</a></p>
       <h2>Learning Apache Wicket</h2>
-      <p class="date">update: 3 Mar 2018</p>
+      <p class="date">update: 6 Mar 2018</p>
       <figure>
         <img src="../images/apache-wicket.png">
       </figure>
@@ -58,7 +58,7 @@
       <p>
         <code>org.apache.wicket.markup.html.basic.Label</code> is simple component. This inserts a string
         (the second argument of constructor) inside the corresponding HTML tag. <code>Label</code> needs a id
-        ('message' in example). It must have a special attribute called <code>wicket:id</code> when insert
+        ('<span class="emphasize">message</span>' in example). It must have a special attribute called <code>wicket:id</code> when insert
         the second argument of <code>Label</code> into HTML tag and its value must be identical to the component
         id.
       </p>
@@ -70,9 +70,79 @@
       <p>
         Wicket implements links with <code>org.apache.wicket.markup.html.link.Link</code> component.
         When you want to navigate to another page, you must use <code>setResponsePage</code> method of
-        <code>Component</code> class. <!--If you want to add link of Wicket to HTML, you needs to add a Wicket
-        identifier (<span class="emphasize">link</span>) in your HTML file.-->
+        <code>Component</code> class. But this only add link, not do click action. If you want to do click
+        action, you should use an abstract method <code>onClick</code> inside the <code>link</code> class.
       </p>
+
+      <p>The following code is example of link in Wicket (ClickLink.java and .html):</p>
+
+      <p><code>ClickLink.java</code></p>
+
+      <pre><code class="java">
+        import org.apache.wicket.markup.html.WebPage;
+        import org.apache.wicket.markup.html.link.Link;
+
+        public class ClickLink extends WebPage {
+          private int count = 0;
+
+          public ClickLink() {
+            add(new Link("anotherLink") {
+              @Override public void onClick() {
+                AfterClickPage clickPage = new AfterClickPage();  // see AfterClickPage.java which later introduce
+                setResponsePage(clickPage);
+
+                // or example ↓
+                // setResponsePage(AfterClickPage.class);
+              }
+            });
+          }
+        }
+      </code></pre>
+
+      <p><code>ClickLink.html</code></p>
+
+      <pre><code class="html">
+        &lt;h1&gt;Link Example&lt;/h1&gt;
+
+        &lt;p wicket:id="anotherLink"&gt;Meve to another Page&lt;/p&gt;.
+      </code></pre>
+
+      <p>
+        But, this only add link and click action, the transition destination class not implements in
+        <code>setResponsePage</code>. So, you must create class of the transition destination. The
+        following example is another page class and html (<code>AfterClickPage.java</code> and
+        <code>AfterClickPage.html</code>):
+      </p>
+
+      <p><code>AfterClickPage.java</code></p>
+
+      <pre><code class="java">
+        import org.apache.wicket.markup.html.WebPage;
+
+        public class AfterClickPage extends WebPage {
+          public AfterClickPage() {}  // empty
+        }
+      </code></pre>
+
+      <p><code>AfterClickPage.html</code></p>
+
+      <pre><code class="java">
+        &lt;h1&gt;Year!!! OK!!!&lt;/h1&gt;
+      </code></pre>
+
+      <p>result:</p>
+
+      <figure class="around-border">
+        <img src="../images/linkpage.png">
+      </figure>
+
+      <p>
+        Click sentence that <span class="emphasize">Move to another Page</span> ↓
+      </p>
+
+      <figure class="around-border">
+        <img src="../images/afterlinkpage.png">
+      </figure>
     </article>
 
     <footer>
