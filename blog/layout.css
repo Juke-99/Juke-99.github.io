@@ -189,7 +189,7 @@ figure img {
   font-size: 90%;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 750px) {
   header h2 {
     padding: 5% 2%;
     text-align: center;
@@ -278,8 +278,68 @@ figure img {
   }
 
   .around-border {
-    width: 100%;
-    margin: 3% 0;
+    width: 95%;
+    margin: 3% auto;
+    border: solid #adadad 0.03em;
+  }
+}
+
+@media screen and (min-width: 2300px) {
+  header h2 {
+    padding: 5% 2%;
+    text-align: center;
+    font-size: 400%;
+    letter-spacing: 0.05em;
+  }
+
+  article h3 {
+    letter-spacing: 0.01em;
+    border-bottom: solid 0.05em #efefef;
+    padding: 1%;
+    font-size: 320%;
+  }
+
+  article.index {
+    margin: auto;
+    width: 80%;
+  }
+
+  .art-head .date {
+    font-size: 100%;
+  }
+
+  .date {
+    letter-spacing: 0.07em;
+    font-size: 110%;
+    color: #717171;
+    padding-left: 1%;
+  }
+
+  .descri {
+    letter-spacing: 0.05em;
+    padding: 1% 2%;
+    color: #aaaaaa;
+    font-size: 120%;
+  }
+
+  .main {
+    width: 90%;
+    margin: auto;
+  }
+
+  pre {
+    width: 90%;
+    margin: 3% auto;
+    font-size: 130%;
+  }
+
+  footer p {
+    padding: 2%;
+  }
+
+  .around-border {
+    width: 80%;
+    margin: 3% auto;
     border: solid #adadad 0.03em;
   }
 }
