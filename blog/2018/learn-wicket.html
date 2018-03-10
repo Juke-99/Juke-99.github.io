@@ -65,7 +65,7 @@
 
       <h2></h2>
 
-      <h3>Wicket link</h3>
+      <h2>Wicket link</h2>
 
       <p>
         Wicket implements links with <code>org.apache.wicket.markup.html.link.Link</code> component.
@@ -126,7 +126,7 @@
 
       <p><code>AfterClickPage.html</code></p>
 
-      <pre><code class="java">
+      <pre><code class="html">
         &lt;h1&gt;Year!!! OK!!!&lt;/h1&gt;
       </code></pre>
 
@@ -143,6 +143,163 @@
       <figure class="around-border">
         <img src="../images/afterlinkpage.png">
       </figure>
+
+      <h2>Panel</h2>
+
+      <p>
+        There is reusable components to one of great ability of Wicket. If you want to use
+        a custom component, you must use <code>org.apache.wicket.markup.html.panel.Panel</code>.
+        <code>Panel</code> class is special component. <code>Panel</code> uses a special tag, it's
+        <span class="emphasize">&lt;wicket:panel&gt;</span>. This tag demarcate the specific border
+        of the panel's markup. The following Wicket Panel (header, content, footer):
+      </p>
+
+      <p>header panel</p>
+
+      <pre class="html"><code>
+        &lt;wicket:panel&gt;
+          &lt;div&gt;
+            &lt;h1&gt;Header&lt;/h1&gt;
+          &lt;/div&gt;
+        &lt;/wicket:panel&gt;
+      </code></pre>
+
+      <pre class="java"><code>
+        import org.apache.wicket.markup.html.panel.Panel;
+
+        public class HeaderPanel extends Panel {
+          public HeaderPanel(String id) {
+            super(id);
+          }
+        }
+      </code></pre>
+
+      <p>
+        This java class is same sentence also in content and footer, it only just changed class name.
+      </p>
+
+      <p>
+        content panel
+      </p>
+
+      <pre class="html"><code>
+        &lt;body&gt;
+          &lt;wicket:panel&gt;
+            &lt;article&gt;
+              &lt;div&gt;
+                &lt;h1&gt;Content&lt;/h1&gt;
+
+                &lt;p&gt;Here is content.&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/article&gt;
+          &lt;/wicket:panel&gt;
+        &lt;/body&gt;
+      </code></pre>
+
+      <p>footer panel</p>
+
+      <pre class="html"><code>
+        &lt;body&gt;
+          &lt;wicket:panel&gt;
+            &lt;div&gt;fufufufufufufufufufufufu.......&lt;/div&gt;
+          &lt;/wicket:panel&gt;
+        &lt;/body&gt;
+      </code></pre>
+
+      <p>
+        To use their panels, you implements the following class and html (<code>Panels.java</code>
+        and <code>.html</code>):
+      </p>
+
+      <pre class="java"><code>
+        import org.apache.wicket.markup.html.WebPage;
+
+        public class Panels extends WebPage {
+          public Panels() {
+            add(new HeaderPanel("headerPanel"));
+            add(new MenuPanel("menuPanel"));
+            add(new FooterPanel("footerPanel"));
+          }
+        }
+      </code></pre>
+
+      <pre class="html"><code>
+        &lt;head&gt;
+          &lt;style&gt;
+            body, div {
+              margin: 0;
+              padding: 0;
+            }
+
+            header {
+              width: 100%;
+              text-align: center;
+              background-color: #11ff11;
+            }
+
+            h1, p {
+              margin: 0;
+              padding: 1%;
+            }
+
+            article {
+              background-color: #304aa0;
+            }
+
+            footer {
+              width: 100%;
+              background-color: #ff00ff;
+            }
+          &lt;/style&gt;
+        &lt;/head&gt;
+
+        &lt;body&gt;
+          &lt;header wicket:id="headerPanel"&gt;header&lt;/header&gt;
+
+          &lt;div wicket:id="menuPanel"&gt;menu&lt;/div&gt;
+
+          &lt;footer wicket:id="footerPanel"&gt;footer&lt;/footer&gt;
+        &lt;/body&gt;
+      </code></pre>
+
+      <p>result:</p>
+
+      <figure class="around-border">
+        <img src="../images/wicket-panel.png">
+      </figure>
+
+      <p>
+        This code of HTML file is the following:
+      </p>
+
+      <pre class="html"><code>
+        &lt;header wicket:id="headerPanel"&gt;&lt;wicket:panel&gt;
+          &lt;div&gt;
+            &lt;h1&gt;Header&lt;/h1&gt;
+          &lt;/div&gt;
+        &lt;/wicket:panel&gt;&lt;/header&gt;
+
+        &lt;div wicket:id="menuPanel"&gt;&lt;wicket:panel&gt;
+          &lt;article&gt;
+            &lt;div&gt;
+              &lt;h1&gt;Content&lt;/h1&gt;
+
+              &lt;p&gt;
+                Here is content.
+              &lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/article&gt;
+        &lt;/wicket:panel&gt;&lt;/div&gt;
+
+        &lt;footer wicket:id="footerPanel"&gt;&lt;wicket:panel&gt;
+          &lt;div&gt;fufufufufufufufufufufufu.......&lt;/div&gt;
+        &lt;/wicket:panel&gt;&lt;/footer&gt;
+      </code></pre>
+
+      <p>
+        Seeing this example, the Panel ID creating in <code>Panels.java</code> is inserted
+        into <span class="emphasize">wicket:id</span>.
+      </p>
     </article>
 
     <footer>
