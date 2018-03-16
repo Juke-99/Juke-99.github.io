@@ -63,8 +63,6 @@
         id.
       </p>
 
-      <h2></h2>
-
       <h2>Wicket link</h2>
 
       <p>
@@ -299,6 +297,56 @@
       <p>
         Seeing this example, the Panel ID creating in <code>Panels.java</code> is inserted
         into <span class="emphasize">wicket:id</span>.
+      </p>
+
+      <h2>
+        Markup inheritance by <span class="emphasize">&lt;wicket:extend&gt;</span> and
+        <span class="emphasize">&lt;wicket:child&gt;</span>
+      </h2>
+
+      <h3>What is markup inheritance?</h3>
+
+      <p>
+        Markup inheritance is that markup containers can inherit the markup of super containers
+        like extend class in Java. This is using two special Wicket tags:
+        <span class="emphasize">wicket:child</span> and <span class="emphasize">wicket:extend</span>.
+      </p>
+
+      <h3>
+        Using <span class="emphasize">&lt;wicket:extend&gt;</span> and
+        <span class="emphasize">&lt;wicket:child&gt;</span>
+      </h3>
+
+      <p>
+        <span class="emphasize">&lt;wicket:child&gt;</span> is used inside the <b>parent</b>'s markup.
+        This is children pages/panel can inject custom markup extending the markup inherited from parent
+        component. The following is parent page if you write code:
+      </p>
+
+      <pre class="html"><code>
+        &lt;p&gt;This is parent page!&lt;/p&gt;
+        &lt;wicket:child/&gt;  &lt;!-- ← Child page/panel inside &lt;wicket:extend&gt; is inserted here. --&gt;
+      </code></pre>
+
+      <p>
+        <span class="emphasize">&lt;wicket:extend&gt;</span> place child page/panel. This can insert
+        to <span class="emphasize">&lt;wicket:child&gt;</span> like extended Java class. The following
+        is example of child page:
+      </p>
+
+      <pre class="html"><code>
+        &lt;wicket:extend&gt;
+          &lt;p&gt;This is child page!!!!&lt;/p&gt;
+        &lt;/wicket:extend&gt;
+      </code></pre>
+
+      <p>
+        How do you use this feature? It's, for example, when switching page. This example is explained in
+        <a href="https://wicket.apache.org/learn/examples/markupinheritance.html">Wicket tutorial</a>. In this
+        tutorial is create two Page class/html and Base class/html. There is
+        <span class="emphasize">&lt;wicket:child&gt;</span> in Base class, and
+        <span class="emphasize">&lt;wicket:extend&gt;</span> in both Page class. Both Page class inherit Base class.
+        After, write code in Base class...
       </p>
     </article>
 
