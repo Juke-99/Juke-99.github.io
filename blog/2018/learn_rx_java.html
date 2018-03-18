@@ -16,7 +16,7 @@
     <header class="art-head">
       <p class="lang"><a href="../jp/2018/rx_java_intro.html">JP</a></p>
       <h2>Learn RxJava2</h2>
-      <p class="date">update: 28 Feb 2018</p>
+      <p class="date">update: 19 Mar 2018</p>
       <figure>
         <img src="../images/rxjava-logo.png">
       </figure>
@@ -192,6 +192,34 @@
         acts both as an observer and as an Observable. Because it is an observer and an observable. observer
         can subscribe to one or more Observables. Observable can pass through the items it observes and also
         emit new items.
+      </p>
+
+      <h3>PublishSubject</h3>
+
+      <p>
+        <span class="emphasize">PublishSubject</span> emits items of subscribed Observers. This is
+        emitted immediately after created items. So, there is risk that one or more items may be lost
+        between the Subject is created and the observer subscribes. If you want to guarantee to delivery
+        all items, you need to form with Create, or using <span class="emphasize">ReplaySubject</span> instead.
+      </p>
+
+      <p>
+        If when error occured, <span class="emphasize">PublishSubject</span> not emit any items to
+        subsequent observers, but instead emit error notification. <span class="emphasize">PublishSubject</span>
+        is derive from <span class="emphasize">Proccesor</span> in the Reactive Streams
+        specification, so nulls is not allowed as parameters to <span class="emphasize">onNext</span> and
+        <span class="emphasize">onError</span>. If this occured, then calls will throw
+        <span class="emphasize">NullPointerException</span>.
+      </p>
+
+      <figure class="around-border">
+        <img src="../images/PublishSubject.png">
+      </figure>
+
+      <p>
+        This subject not have a public constructor. A new empty instance of
+        <span class="emphasize">PublishSubject</span> can create by <span class="emphasize">create()</span>
+        method.
       </p>
     </article>
 

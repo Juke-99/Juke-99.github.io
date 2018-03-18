@@ -181,6 +181,11 @@ figure img {
   width: 80%;
   margin: 3% 2%;
   border: solid #adadad 0.03em;
+  text-align: center;
+}
+
+.around-border img {
+  padding: 1% 0;
 }
 
 .emphasize {
