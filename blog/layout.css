@@ -40,7 +40,7 @@ article {
 article h3 {
   letter-spacing: 0.01em;
   border-bottom: solid 0.03em #efefef;
-  padding: 2% 1%;
+  padding: 1%;
   font-size: 250%;
 }
 
@@ -198,7 +198,7 @@ figure img {
   header h2 {
     padding: 5% 2%;
     text-align: center;
-    font-size: 210%;
+    font-size: 190%;
     letter-spacing: 0.05em;
   }
 
@@ -213,7 +213,7 @@ figure img {
     letter-spacing: 0.01em;
     border-bottom: solid 0.03em #efefef;
     padding: 1%;
-    font-size: 230%;
+    font-size: 175%;
   }
 
   article.index {
@@ -236,7 +236,7 @@ figure img {
 
   .date {
     letter-spacing: 0.07em;
-    font-size: 90%;
+    font-size: 80%;
     color: #717171;
     padding-left: 1%;
   }
@@ -249,14 +249,14 @@ figure img {
   }
 
   .main h2 {
-    font-size: 200%;
-    padding-top: 5%;
-    padding-bottom: 0.1%;
+    font-size: 180%;
+    padding-top: 15%;
+    padding-bottom: 1%;
   }
 
   .main h3 {
-    font-size: 210%;
-    padding: 2% 1% 0.7% 0.8%;
+    font-size: 160%;
+    padding: 5% 1% 1% 0.8%;
   }
 
   .main p {
