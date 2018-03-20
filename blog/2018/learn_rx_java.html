@@ -207,7 +207,7 @@
       <p>
         If when error occured, <span class="emphasize">PublishSubject</span> not emit any items to
         subsequent observers, but instead emit error notification. <span class="emphasize">PublishSubject</span>
-        is derive from <span class="emphasize">Proccesor</span> in the Reactive Streams
+        is derive from <span class="emphasize">Processor</span> in the Reactive Streams
         specification, so nulls is not allowed as parameters to <span class="emphasize">onNext</span> and
         <span class="emphasize">onError</span>. If this occured, then calls will throw
         <span class="emphasize">NullPointerException</span>.
@@ -221,6 +221,22 @@
         This subject not have a public constructor. A new empty instance of
         <span class="emphasize">PublishSubject</span> can create by <span class="emphasize">create()</span>
         method.
+      </p>
+
+      <h2>Backpressure</h2>
+
+      <p>
+        Backpressure occurs when in an Flowable processing pipeline, an Observable is emitting items
+        faster than an operator can ingest items.
+      </p>
+
+      <p>
+        Asynchronous operators have buffers to hold items such <span class="emphasize">onNext</span>
+        until can be processed. There is problem when processing huge items. This problem lead
+        <span class="emphasize">OutOfMemoryError</span>. Like as error handling receive operators
+        to deal with by using <span class="emphasize">onError</span>, backpressure is another feature
+        of data flow programmer has to think about and handle by using
+        <span class="emphasize">onBackpressure</span>.
       </p>
     </article>
 
