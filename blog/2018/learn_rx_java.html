@@ -4,7 +4,7 @@
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
-    <title>Juke-99 Blog | Learn RxJava2</title>
+    <title>Learn RxJava2 | Juke-99 Blog</title>
     <link rel="stylesheet" href="../layout.css">
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
@@ -213,6 +213,10 @@
         <span class="emphasize">NullPointerException</span>.
       </p>
 
+      <p>
+        Since a <span class="emphasize">PublishSubject</span> is an Observable, don't support backpressure.
+      </p>
+
       <figure class="around-border">
         <img src="../images/PublishSubject.png">
       </figure>
@@ -220,7 +224,10 @@
       <p>
         This subject not have a public constructor. A new empty instance of
         <span class="emphasize">PublishSubject</span> can create by <span class="emphasize">create()</span>
-        method.
+        method. When the PublishSubject is terminated by <span class="emphasize">onError(Throwable)</span>
+        or <span class="emphasize">onComplete</span>, late Observer only receive terminal event. Since a
+        <span class="emphasize">PublishSubject</span> don't keep/cache items, a new Observer not receive
+        past items.
       </p>
 
       <h2>Backpressure</h2>
