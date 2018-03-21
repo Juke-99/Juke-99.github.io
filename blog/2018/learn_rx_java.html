@@ -230,7 +230,13 @@
         you are not that need to implement <code>onSbscribe</code> if the subject is using as
         standalone. Only when calling <code>onSbscribe</code> after
         <span class="emphasize">PublishSubject</span> became tarminal state, immediately
-        <span class="emphasize">Disposable</span> is processed.
+        <span class="emphasize">Disposable</span> is processed. <code>onNext</code>, <code>onError</code>
+        and <code>onComplete</code> should implement to be serialized which call from the same thread or
+        not overlapping defferent threads through external means of serialization. <code>toSerialized</code>
+        into <span class="emphasize">Subject</span> is available to all <span class="emphasize">Subjects</span>.
+        This supports serialization and also protects reentrance. The <span class="emphasize">PublishSubject</span>
+        supports <code>hasComplete</code>, <code>hasThrowable</code>, <code>getThrowable</code> and
+        <code>hasObserver</code> which the standard state-peeking method.
       </p>
 
       <h2>Backpressure</h2>
