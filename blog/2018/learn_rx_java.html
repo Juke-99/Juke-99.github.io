@@ -17,7 +17,7 @@
     <header class="art-head">
       <p class="lang"><a href="../jp/2018/rx_java_intro.html">JP</a></p>
       <h2>Learn RxJava2</h2>
-      <p class="date">update: 19 Mar 2018</p>
+      <p class="date">update: 21 Mar 2018</p>
       <figure>
         <img src="../images/rxjava-logo.png">
       </figure>
@@ -207,10 +207,9 @@
       <p>
         If when error occured, <span class="emphasize">PublishSubject</span> not emit any items to
         subsequent observers, but instead emit error notification. <span class="emphasize">PublishSubject</span>
-        is derive from <span class="emphasize">Processor</span> in the Reactive Streams
-        specification, so nulls is not allowed as parameters to <span class="emphasize">onNext</span> and
-        <span class="emphasize">onError</span>. If this occured, then calls will throw
-        <span class="emphasize">NullPointerException</span>.
+        is derive from <span class="emphasize">Processor</span> in the Reactive Streams specification,
+        so nulls is not allowed as parameters to <code>onNext</code> and <code>onError</code>.
+        If this occured, then calls will throw <span class="emphasize">NullPointerException</span>.
       </p>
 
       <p>
@@ -223,11 +222,15 @@
 
       <p>
         This subject not have a public constructor. A new empty instance of
-        <span class="emphasize">PublishSubject</span> can create by <span class="emphasize">create()</span>
-        method. When the PublishSubject is terminated by <span class="emphasize">onError(Throwable)</span>
-        or <span class="emphasize">onComplete</span>, late Observer only receive terminal event. Since a
+        <span class="emphasize">PublishSubject</span> can create by <code>create</code> method.
+        When the <span class="emphasize">PublishSubject</span> is terminated by <code>onError</code>
+        or <code>onComplete</code>, late Observer only receive terminal event. Since a
         <span class="emphasize">PublishSubject</span> don't keep/cache items, a new Observer not receive
-        past items.
+        past items. When <span class="emphasize">PublishSubject</span> implemented the Observer interface,
+        you are not that need to implement <code>onSbscribe</code> if the subject is using as
+        standalone. Only when calling <code>onSbscribe</code> after
+        <span class="emphasize">PublishSubject</span> became tarminal state, immediately
+        <span class="emphasize">Disposable</span> is processed.
       </p>
 
       <h2>Backpressure</h2>
@@ -238,12 +241,11 @@
       </p>
 
       <p>
-        Asynchronous operators have buffers to hold items such <span class="emphasize">onNext</span>
-        until can be processed. There is problem when processing huge items. This problem lead
-        <span class="emphasize">OutOfMemoryError</span>. Like as error handling receive operators
-        to deal with by using <span class="emphasize">onError</span>, backpressure is another feature
-        of data flow programmer has to think about and handle by using
-        <span class="emphasize">onBackpressure</span>.
+        Asynchronous operators have buffers to hold items such <code>onNext</code> until can be processed.
+        There is problem when processing huge items. This problem lead
+        <span class="emphasize">OutOfMemoryError</span>. Like as error handling receive operators to deal
+        with by using <code>onError</code>, backpressure is another feature of data flow programmer has
+        to think about and handle by using <code>onBackpressure</code>.
       </p>
     </article>
 
