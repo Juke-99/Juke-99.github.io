@@ -18,7 +18,7 @@
     <header class="art-head">
       <p class="lang"><a href="../jp/2018/rx_java_intro.html">JP</a></p>
       <h2>Learning Apache Wicket</h2>
-      <p class="date">update: 17 Mar 2018</p>
+      <p class="date">update: 8 Apr 2018</p>
       <figure>
         <img src="../images/apache-wicket.png">
       </figure>
@@ -348,6 +348,15 @@
         <span class="emphasize">&lt;wicket:child&gt;</span> in Base class, and
         <span class="emphasize">&lt;wicket:extend&gt;</span> in both Page class. Both Page class inherit Base class.
         After, write code in Base class...
+      </p>
+
+      <h3>Modifinng tag attributes</h3>
+
+      <p>
+        To modify tag attributes, you use <code>org.apache.wicket.AttributeModifier</code> class. This class
+        can add to any component via the Component's <code>add</code> method. If the first argument of
+        AttributeModifier class exist, then you should use
+        <code>org.apache.wicket.behavior.AttributeAppender</code>.
       </p>
     </article>
 
