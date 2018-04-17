@@ -7,6 +7,7 @@
     <title>Learning Apache Wicket | Juke-99 Blog</title>
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../layout.css">
+    <link rel="stylesheet" href="../button-layout.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700" rel="stylesheet">
@@ -24,8 +25,30 @@
       </figure>
     </header>
 
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false">
+      <svg class="icon icon-menu-toggle" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100">
+        <g class="svg-menu-toggle">
+          <path class="line line-1" d="M5 13h90v14H5z"/>
+          <path class="line line-2" d="M5 43h90v14H5z"/>
+          <path class="line line-3" d="M5 73h90v14H5z"/>
+        </g>
+      </svg>
+    </button>
+
+    <nav id="nav-box" class="hide">
+      <ul>
+        <li><a href="#first_explanation">First explanation</a></li>
+        <li><a href="#wicket_link">Wicket link</a></li>
+        <li>
+          <a href="#Markup_inheritance_by_wicket-extend_and_wicket-child">Markup inheritance by
+          <span class="emphasize">&lt;wicket:extend&gt;</span> and
+          <span class="emphasize">&lt;wicket:child&gt;</span></a>
+        </li>
+      </ul>
+    </nav>
+
     <article class="main">
-      <h2>First explanation</h2>
+      <h2 id="first_explanation">First explanation</h2>
 
       <p>
         In Wicket a web page is a subclass of <code>org.apache.wicket.WebPage</code>. This subclass
@@ -64,7 +87,7 @@
         id.
       </p>
 
-      <h2>Wicket link</h2>
+      <h2 id="wicket_link">Wicket link</h2>
 
       <p>
         Wicket implements links with <code>org.apache.wicket.markup.html.link.Link</code> component.
@@ -300,7 +323,7 @@
         into <span class="emphasize">wicket:id</span>.
       </p>
 
-      <h2>
+      <h2 id="Markup_inheritance_by_wicket-extend_and_wicket-child">
         Markup inheritance by <span class="emphasize">&lt;wicket:extend&gt;</span> and
         <span class="emphasize">&lt;wicket:child&gt;</span>
       </h2>
@@ -354,9 +377,60 @@
 
       <p>
         To modify tag attributes, you use <code>org.apache.wicket.AttributeModifier</code> class. This class
-        can add to any component via the Component's <code>add</code> method. If the first argument of
-        AttributeModifier class exist, then you should use
+        can add to any component via the Component's <code>add</code> method.
+      </p>
+
+      <pre class="java"><code>
+        Label label = new Label("id", "str");  // Label
+        label.add(new AttributeModifier("style", "color:#ae1133; font-size:13px;"));
+      </code></pre>
+
+      <p>
+        If the first argument of <code>AttributeModifier</code> class exist, then you should use
         <code>org.apache.wicket.behavior.AttributeAppender</code>.
+      </p>
+
+      <pre class="java"><code>
+        label.add(new AttributeAppender("style", "border:solid 3px #883f93;"));
+      </code></pre>
+
+      <p>
+        We also can modify using factory methods of <code>AttributeModifier</code>:
+      </p>
+
+      <pre class="java"><code>
+        label.add(AttributeModifier.replace("style", "color:blue; padding:4px;"));  //replace
+
+        label.add(AttributeModifier.append("style", "color:blue; padding:4px;"));  // append
+
+        label.add(AttributeModifier.prepend("style", "color:blue; padding:4px;"));  // prepend
+      </code></pre>
+
+      <dl>
+        <dt>replace:</dt>
+        <dd>
+          Replace to attribute.
+        </dd>
+
+        <dt>append:</dt>
+        <dd>
+          Append to attribute. This equal to
+          <code>label.add(new AttributeAppender("style", "color:blue; padding:4px;"));</code>
+        </dd>
+
+        <dt>prepend:</dt>
+        <dd>
+          Prepend to attribute. This method add the previous attribute after enter blank behind added attribute.
+        </dd>
+      </dl>
+
+      <h3>Handling id attribute of HTML</h3>
+
+      <p>
+        In Wicket can choice whether or use not id attribute of HTML. It can manage
+        for <code>setOutputMarkupId</code>. This method can use id attribute if
+        <code>setOutputMarkupId</code> is true. On this case, can set id
+        in <code>setMarkupId</code>, and get id in <code>getMarkupId</code>.
       </p>
     </article>
 
@@ -368,5 +442,7 @@
     </footer>
 
     <p class="return-home"><a href="../index.html">Home</a></p>
+
+    <script src="../button-animation.js"></script>
   </body>
 </html>

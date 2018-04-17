@@ -95,12 +95,44 @@ figure img {
   max-height: 85%;
 }
 
+dt {
+  font-weight: 600;
+}
+
+dd {
+  font-weight: 300;
+  padding: 2% 2% 2% 3%;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  height: 100%;
+  width: 20%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-top: 56px;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+nav li {
+  list-style-type: none;
+  border-top: solid #aaaaaa 0.02em;
+  padding: 2%;
+}
+
 .lang {
   position: absolute;
   right: 0;
   top: 0;
   font-size: 170%;
   padding: 1%;
+}
+
+.hide {
+  display: none;
 }
 
 .center {
