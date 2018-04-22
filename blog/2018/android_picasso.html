@@ -8,13 +8,17 @@
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../layout.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </head>
 
   <body>
     <header class="art-head">
       <p class="lang"><a href="../jp/2018/rx_java_intro.html">JP</a></p>
       <h2>Picasso in Android</h2>
-      <p class="date">22 Mar 2018</p>
+      <p class="date">update: 22 Apr 2018</p>
       <figure>
         <img src="../images/picasso.png">
       </figure>
@@ -34,7 +38,25 @@
       </p>
 
       <p>
-        There is Glide into similar library. The different is that Glide can use .gif file format.
+        There is Glide into similar library. The different is that Glide can use .gif file format etc...
+      </p>
+
+      <p>
+        Picasso is nearly started from following to code:
+      </p>
+
+      <pre><code class="java">
+        Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(imageView);
+      </code></pre>
+
+      <p>
+        <code>load</code> method is start an image request from the specified URI. If null was
+        returned, then not trigger any request, set placeholder.
+      </p>
+
+      <p>
+        <code>into</code> method is asynchronously execute the request into the specified
+        <span class="emphasize">ImageView</span>.
       </p>
     </article>
 
