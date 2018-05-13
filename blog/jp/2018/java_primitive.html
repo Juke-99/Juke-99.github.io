@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <title>About primitive of Java | Juke-99 ブログ</title>
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../layout.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body>
+    <header class="art-head">
+      <p class="lang"><a href="#">EN</a></p>
+      <h2>Javaのプリミティブ型について</h2>
+      <p class="date">2018/5/13</p>
+      <figure>
+        <img src="../../images/java-logo.png">
+      </figure>
+    </header>
+
+    <article class="main">
+      <h2><span class="emphasize">==</span>（同値）と<span class="emphasize">.equals</span>（等価）の違い</h2>
+
+      <p>
+        結論として、<span class="emphasize">==</span>はプリミティブ型の判定をするが、
+        <span class="emphasize">.equals</span>はオブジェクトの参照先の中の価の判定をする。ここで、プリミティブ型ってなんだっけなーと思った。
+        <code>ArrayList</code>でよく<code>int</code>と<code>Integer</code>を混合して、<code>int</code>を入れた際に
+        ”<code>ArrayList</code>はプリミティブ型を使用出来ません”と、コンパイラに怒られてしまい、
+        とりあえず<code>Integer</code>を使ってたという感じ。そこで、プリミティブ型について理解してないことに改めて気が付いた。
+      </p>
+
+      <h3>プリミティブ型とは</h3>
+
+      <p>
+        宣言した際に、参照型と違い、メモリ消費があらかじめ決められており、参照型よりメモリ消費を節約できる物ということ。
+      </p>
+
+      <p>
+        プリミティブ型の種類とメモリ量は以下の通り：
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>型</th><th>メモリ量（bytes）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>byte</td><td>1 bytes</td></tr>
+          <tr><td>boolean</td><td>1 bytes</td></tr>
+          <tr><td>short</td><td>2 bytes</td></tr>
+          <tr><td>char</td><td>2 bytes</td></tr>
+          <tr><td>int</td><td>4 bytes</td></tr>
+          <tr><td>float</td><td>4 bytes</td></tr>
+          <tr><td>long</td><td>8 bytes</td></tr>
+          <tr><td>double</td><td>8 bytes</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        <span class="emphasize">==</span>がプリミティブ型を判定する。では、オブジェクト同士を
+        <span class="emphasize">==</span>で比較したときはどういう判定なのかというとオブジェクトの参照同士を比較している。<br>
+        例えば次のようなもの：
+      </p>
+
+      <pre><code class="java">
+        Integer a = new Integer(1);
+        Integer b = new Integer(1);
+
+        a = b;
+
+        if(a == b) ~~  // false
+      </code></pre>
+
+      <p>
+        よくある定番の例だけど、このif文の結果は<span class="emphasize">false</span>になる。
+        理由はプリミティブ型と違い、インスタンスするとメモリをインスタンスごとに参照を作り、参照の中に値を入れるので、
+        当然、プリミティブ型のように直接値を入れている時と違い、新しく作られるごとに異なる参照が生まれるので、<span class="emphasize">==</span>で
+        判定したとき、上の例だと<span class="emphasize">false</span>になる。
+      </p>
+
+      <h3>Stringの特殊性</h3>
+
+      <p>
+        ここで、疑問に出るのが、プリミティブ型じゃないStringの存在。実は次の例だと、判定はtrueになる。
+      </p>
+
+      <pre><code class="java">
+        String a = "abc";
+        String b = "abc";
+
+        if(a == b) ~~  // true
+      </code></pre>
+
+      <p>
+        実はこれはインスタンスを生成してるのだが、newを書かない宣言をすると同じ参照をするようになっていて、値を渡しているように見えるのだ。
+        値が同じように見えて、実は参照が同じというね...
+      </p>
+
+      <h2>ラッパー</h2>
+
+      <p>
+        ここで、最初の話で<code>ArrayList</code>でプリミティブ型の話があったが、<code>int</code>と<code>Integer</code>
+        などの話が絡んでくる。<code>int</code>じゃダメなのに、似たような<code>Integer</code>でなぜ<code>ArrayList</code>
+        で使えるのか？まず<code>ArrayList</code>がプリミティブ型を扱えないということ。でも<code>int</code>などの数値を使いたいと
+        なったときに、出てくるのがラッパー。ラッパーはプリミティブ型をクラスにしたもので、そのおかげで、数値を<code>ArrayList</code>
+        で使いたいときにラッパーで使えるようになるということ。
+      </p>
+
+      <p>
+        プリミティブ型とそのラッパーの対応表：
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>型</th><th>ラッパー</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>byte</td><td>Byte</td></tr>
+          <tr><td>boolean</td><td>Boolean</td></tr>
+          <tr><td>short</td><td>Short</td></tr>
+          <tr><td>char</td><td>Character</td></tr>
+          <tr><td>int</td><td>Integer</td></tr>
+          <tr><td>float</td><td>Float</td></tr>
+          <tr><td>long</td><td>Long</td></tr>
+          <tr><td>double</td><td>Double</td></tr>
+        </tbody>
+      </table>
+
+      <h2>さいご</h2>
+
+      <p>
+        このプリミティブ型と参照型の違いから値渡しとか参照渡しとか出るんだよなー<br>
+        参照渡しなんて存在しない（結局は値を渡してる）の意味がわかったのはプリミティブ型漁ってたらわかった。
+      </p>
+    </article>
+
+    <p class="return-home"><a href="../index.html">Home</a></p>
+  </body>
+</html>

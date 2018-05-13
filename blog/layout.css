@@ -123,6 +123,30 @@ nav li {
   padding: 2%;
 }
 
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 2%;
+}
+
+th {
+  padding: 1%;
+  background-color: #88F88F;
+}
+
+td {
+  padding: 1.2%;
+  font-size: 120%;
+}
+
+tr:nth-child(2n) > td:last-child {
+  background-color: #B8F7D9;
+}
+
+tr:nth-child(2n) > td:first-child {
+  background-color: #B8F7D9;
+}
+
 .lang {
   position: absolute;
   right: 0;
