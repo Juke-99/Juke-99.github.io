@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <title>About pass in Java | Juke-99 ブログ</title>
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../layout.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body>
+    <header class="art-head">
+      <p class="lang"><a href="#">EN</a></p>
+      <h2>値渡しと参照の値渡し</h2>
+      <p class="date">2018/6/3</p>
+      <figure>
+        <img src="../../images/java-logo.png">
+      </figure>
+    </header>
+
+    <article class="main">
+      <h2>値渡し</h2>
+
+      <p>
+        値渡しは簡単で、例えば、ある変数に値を代入し、先程の変数をもう一方の変数に渡すと元の変数の値をコピーして変数に入れる
+        渡し方。
+      </p>
+
+      <figure class="around-border">
+        <img width="30%" src="../../images/pass-by-value.jpg">
+      </figure>
+
+      <h2>参照の値渡し</h2>
+
+      <p>
+        参照の値渡しとは、変数aとbがあるとして、例えば、Javaでするときに、変数aにインスタンスを代入する。その際に、aにはインスタンスの
+        参照値が入る。そのあとに、変数bにaを代入すると、先程、代入された参照値が入る。これが参照の値渡し。
+      </p>
+
+      <figure class="around-border">
+        <img width="30%" src="../../images/pass-by-value-of-reference.jpg">
+      </figure>
+
+      <h2>参照渡し</h2>
+
+      <p>
+        参照渡しは、変数aとbがあるとき、変数aに参照値が代入されたとして、aをbに代入すると、何が起きるかというと、
+        変数aの中にある参照値ではなく、変数aの入っている参照値がbに渡される。動作は参照の値渡しと似ているが、渡している
+        ものが違う。参照渡しは参照値は渡しているが、ずっとその参照値を渡しているのではないということ。参照の値渡しは参照値を
+        ずっと使い続けているので、実質値渡しということ。
+      </p>
+
+      <figure class="around-border">
+        <img width="30%" src="../../images/pass-by-reference.jpg">
+      </figure>
+    </article>
+
+    <p class="return-home"><a href="../index.html">Home</a></p>
+  </body>
+</html>
